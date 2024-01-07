@@ -1,23 +1,19 @@
-import type { Metadata } from "next";
-import "../styles/globals.css";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import type { Metadata } from 'next'
+import RecoilRootProvider from '@/states/recoilRootProvider'
 
 export const metadata: Metadata = {
-  title: "indevruis blog",
-  description: "next.js + typescript + tailwindcss blog starter",
-};
+  title: 'indevruis blog',
+  description: 'next.js + typescript + tailwindcss blog starter',
+}
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="ko" className="flex justify-center">
-      <body className="flex flex-col bg-black text-white w-[650px]">
-        <Navbar />
-        {children}
-        <Footer />
+    <html lang="ko">
+      <body>
+        <RecoilRootProvider>{children}</RecoilRootProvider>
       </body>
     </html>
-  );
-};
+  )
+}
 
-export default RootLayout;
+export default RootLayout

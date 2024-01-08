@@ -1,29 +1,39 @@
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
 
 const Footer = () => {
   return (
     <footer>
-      <div className="mt-16">
+      <div className="mt-16 mb-5">
         <div className="flex justify-center">
-          <Link href="/">아</Link>
-          <Link href="/" className="ml-1">
-            이
+          <Link href="/" className="px-2">
+            <Image src="/images/email.png" width={20} height={20} alt="Email" />
           </Link>
-          <Link href="/" className="ml-1">
-            콘
+          <Link href="/" className="px-2">
+            <Image
+              src="/images/github.png"
+              width={20}
+              height={20}
+              alt="Email"
+            />
           </Link>
-          <Link href="/" className="ml-1">
-            들
+          <Link href="/" className="px-2">
+            <Image
+              src="/images/linkedIn.png"
+              width={20}
+              height={20}
+              alt="Email"
+            />
           </Link>
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-1">
           <div>© 2024</div>
           <div>&nbsp; • &nbsp;</div>
           <div>SeoYun Choi</div>
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

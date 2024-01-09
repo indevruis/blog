@@ -1,23 +1,24 @@
-import Link from "next/link";
+import Link from 'next/link'
+import { navlinks } from '@/contants'
 
 const Navbar = () => {
   return (
-    <header className="w-[650px] pt-[70px] my-[10px] py-[10px] flex justify-between">
+    <nav className="pt-[70px] my-[10px] py-[10px] flex justify-between">
       <div>
-        <Link href="/">🖤</Link>
-        <Link href="/note" className="ml-7">
-          Note
-        </Link>
-        <Link href="/project" className="ml-7">
-          Project
-        </Link>
+        {navlinks.slice(0, 3).map((nav) => (
+          <Link href={nav.link} key={nav.title} className="mr-7">
+            {nav.title}
+          </Link>
+        ))}
       </div>
       <div className="flex">
-        <Link href="/about">About</Link>
-        <div className="pl-7 pr-4">☾</div>
+        <Link href={navlinks.at(-1)!.link} key={navlinks.at(-1)!.title}>
+          {navlinks.at(-1)!.title}
+        </Link>
+        <div className="pl-7 pr-4">🌞</div>
       </div>
-    </header>
-  );
-};
+    </nav>
+  )
+}
 
-export default Navbar;
+export default Navbar

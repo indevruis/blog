@@ -1,20 +1,12 @@
-'use client'
-
 import Link from 'next/link'
 import { Post } from '@/contentlayer/generated'
 import dayjs from 'dayjs'
-import { useSetRecoilState } from 'recoil'
-import { NotePostAtom } from '@/states/NotePostAtom'
 
 const PostList = ({ post }: { post: Post }) => {
-  const setNotePost = useSetRecoilState(NotePostAtom)
   const date = dayjs(post.createdAt).format('YYYY.MM.DD')
-  const onClickLink = () => {
-    setNotePost(post)
-  }
   return (
     <ul className="w-full">
-      <Link href={`/${post._raw.flattenedPath}`} passHref onClick={onClickLink}>
+      <Link href={`/note/${post._raw.flattenedPath}`}>
         <li className="flex justify-between py-1 my-1">
           <div>
             <div>{post.title}</div>

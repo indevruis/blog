@@ -7,7 +7,6 @@ import remarkGfm from 'remark-gfm'
 export const Post = defineDocumentType(() => ({
   name: 'Post',
   filePathPattern: `**/*.mdx`,
-
   fields: {
     title: {
       type: 'string',
@@ -25,21 +24,13 @@ export const Post = defineDocumentType(() => ({
       type: 'date',
       required: true,
     },
-    updatedAt: {
-      type: 'date',
-      required: false,
-    },
     thumbnail: {
-      type: 'string',
-      required: false,
-    },
-    hashtage: {
       type: 'string',
       required: false,
     },
   },
   computedFields: {
-    url: {
+    slug: {
       type: 'string',
       resolve: (post) => `/posts/${post._raw.flattenedPath}`,
     },

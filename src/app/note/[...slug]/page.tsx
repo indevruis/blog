@@ -18,9 +18,11 @@ const NotePost = async ({ params }: Params) => {
     <div>
       <h1 className="text-30px">{post!.title}</h1>
       <time>{dayjs(post!.createdAt).format('YYYY.MM.DD')}</time>
-      <div>{post!.thumbnail}</div>
-      <div className='.MDX'>
-      <MDXRemote source={post.body.html}/>
+      <div className='my-5'>{post!.thumbnail}</div>
+      <div>
+      <article className='prose prose-stone prose-sm max-w-none'>
+        <MDXRemote source={post.body.html}/>
+      </article>
       </div>
     </div>
   )

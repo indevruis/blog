@@ -9,10 +9,9 @@ const Note = () => {
     (a: Post, b: Post) =>
       Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)),
   )
-
   const postsByYear: PostsByYear = {}
   posts.forEach((post) => {
-    const year = post._id.substring(5, 9)
+    const year = post.createdAt.substring(0,4)
     if (!postsByYear[year]) {
       postsByYear[year] = []
     }
@@ -30,7 +29,7 @@ const Note = () => {
               <div className="flex flex-col w-full">
                 {posts.map(
                   (post, i) =>
-                    year === post._id.substring(5, 9) && (
+                    year === post.createdAt.substring(0,4) && (
                       <PostList post={post} key={i} />
                     ),
                 )}

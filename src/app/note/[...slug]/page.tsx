@@ -1,6 +1,5 @@
 import { allPosts } from '@/contentlayer/generated'
 import { notFound } from 'next/navigation'
-import { MDXRemote } from 'next-mdx-remote/rsc'
 import { format, parseISO } from 'date-fns'
 
 interface Params {
@@ -23,7 +22,7 @@ const NotePost = async ({ params }: Params) => {
       <div className='my-5'>{post!.thumbnail}</div>
       <div>
       <article className='prose prose-stone prose-sm max-w-none'>
-        <MDXRemote source={post.body.html}/>
+        <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
       </article>
       </div>
     </div>

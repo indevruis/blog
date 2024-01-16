@@ -1,14 +1,14 @@
 import PageHeader from '@/components/PageHeader'
 import { Post, allPosts } from '@/contentlayer/generated'
 import PostList from '@/containers/note/PostList'
+import { compareDesc } from 'date-fns'
 
 type PostsByYear = Record<string, Post[]>
 
 const Note = () => {
   const posts = allPosts.sort(
     (a: Post, b: Post) =>
-      Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)),
-  )
+    compareDesc(new Date(a.createdAt), new Date(b.createdAt)))
   const postsByYear: PostsByYear = {}
   posts.forEach((post) => {
     const year = post.createdAt.substring(0,4)

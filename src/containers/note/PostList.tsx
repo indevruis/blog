@@ -1,12 +1,11 @@
 import Link from 'next/link'
 import { Post } from '@/contentlayer/generated'
-import dayjs from 'dayjs'
+import { format, parseISO } from 'date-fns'
 
 const PostList = ({ post }: { post: Post }) => {
-  const date = dayjs(post.createdAt).format('YYYY.MM.DD')
   return (
     <ul className="w-full">
-      <Link href={`/note/${post._raw.flattenedPath}`}>
+      <Link href={`/${post._raw.flattenedPath}`}>
         <li className="flex justify-between py-1 my-1">
           <div>
             <div>{post.title}</div>
@@ -14,7 +13,11 @@ const PostList = ({ post }: { post: Post }) => {
               <div className="group-hover:block">{post.description}</div>
             </div>
           </div>
-          <div className="pr-3 text-[14px] pt-1">{date.slice(5)}</div>
+          <div className="pr-3 text-[13px] pt-1">
+            <time dateTime={post.createdAt} className="text-gray-600">
+              {format(parseISO(post.createdAt), 'MM.dd')}
+            </time>
+          </div>
         </li>
       </Link>
     </ul>

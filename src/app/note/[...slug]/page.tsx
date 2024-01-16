@@ -1,7 +1,7 @@
-import dayjs from 'dayjs'
 import { allPosts } from '@/contentlayer/generated'
 import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import { format, parseISO } from 'date-fns'
 
 interface Params {
   params: {
@@ -17,7 +17,9 @@ const NotePost = async ({ params }: Params) => {
   return (
     <div>
       <h1 className="text-30px">{post!.title}</h1>
-      <time>{dayjs(post!.createdAt).format('YYYY.MM.DD')}</time>
+      <time dateTime={post.createdAt} className="mb-2 block text-xs text-gray-600">
+        {format(parseISO(post.createdAt), 'LLLL d, yyyy')}
+      </time>
       <div className='my-5'>{post!.thumbnail}</div>
       <div>
       <article className='prose prose-stone prose-sm max-w-none'>

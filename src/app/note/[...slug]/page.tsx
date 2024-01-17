@@ -1,6 +1,7 @@
 import { allPosts } from '@/contentlayer/generated'
 import { notFound } from 'next/navigation'
 import { format, parseISO } from 'date-fns'
+import Mdx from '@/containers/note/Mdx'
 
 interface Params {
   params: {
@@ -22,7 +23,7 @@ const NotePost = async ({ params }: Params) => {
       <div className='my-5'>{post!.thumbnail}</div>
       <div>
       <article className='prose prose-stone prose-sm max-w-none'>
-        <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
+        <Mdx postCode={post.body.code} />
       </article>
       </div>
     </div>

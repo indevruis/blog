@@ -20,3 +20,28 @@ body {
   font-style: Bold;
   src: url('/fonts/GowunBatang-Bold.ttf') format('truetype');
 }
+
+code {
+  counter-reset: line;
+}
+
+code > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  margin-right: 1rem;
+  color: grey;
+}
+
+code[data-theme*=" "],
+code[data-theme*=" "] span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  code[data-theme*=" "],
+  code[data-theme*=" "] span {
+    color: var(--shiki-dark);
+    background-color: var(--shiki-dark-bg);
+  }
+}

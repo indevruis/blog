@@ -3,6 +3,7 @@ import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
+import rehypePrettyCode from "rehype-pretty-code";
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -38,6 +39,14 @@ export const Post = defineDocumentType(() => ({
   },
 }))
 
+const options = {
+  theme: {
+    dark:"poimandres",
+    light: "vitesse-light",
+  },
+  defaultLang: "js",
+}
+
 const contentSource = makeSource({
   contentDirPath: 'posts',
   documentTypes: [Post],
@@ -53,8 +62,11 @@ const contentSource = makeSource({
           rel: ['noreferrer noopener'],
         },
       ],
+      // @ts-expect-error
+      [rehypePrettyCode, options]
     ],
   },
 })
 
 export default contentSource
+

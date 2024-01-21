@@ -19,7 +19,7 @@ const Note = async () => {
     postsByYear[year].push(post)
   })
   return (
-    <div>
+    <>
       <PageHeader title="Note" content="" />
       <section className="border-b">
         {Object.keys(postsByYear)
@@ -28,17 +28,19 @@ const Note = async () => {
             <div className="flex border-t py-1" key={i}>
               <p className="mr-10 py-3 text-[14px]">{year}</p>
               <div className="flex flex-col w-full">
-                {notePost.map(
-                  (post, i) =>
-                    year === post.createdAt.substring(0, 4) && (
-                      <PostList post={post} key={i} />
-                    ),
-                )}
+                <ul className="w-full">
+                  {notePost.map(
+                    (post, i) =>
+                      year === post.createdAt.substring(0, 4) && (
+                        <PostList post={post} key={i} />
+                      ),
+                  )}
+                </ul>
               </div>
             </div>
           ))}
       </section>
-    </div>
+    </>
   )
 }
 

@@ -6,8 +6,8 @@ const Category = () => {
     <div className="flex">
       나의 기록
       <div className="ml-5">
-        {navlinks.slice(1, 3).map((nav) => (
-          <div className="flex">
+        {navlinks.slice(1, 3).map((nav, i) => (
+          <div className="flex" key={i}>
             <Link href={nav.link}>{nav.title}</Link>
             <p className="ml-3">{nav.description}</p>
           </div>

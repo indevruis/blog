@@ -1,4 +1,9 @@
-const PageHeader = ({ title, content }: { title: string; content: string }) => {
+interface Props {
+  title: string
+  content: string
+}
+
+const PageHeader = ({ title, content }: Props) => {
   return (
     <div className="mb-5">
       <h1>{title}</h1>

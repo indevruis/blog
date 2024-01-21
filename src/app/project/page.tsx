@@ -10,16 +10,16 @@ const Project = async () => {
     compareDesc(new Date(a.createdAt), new Date(b.createdAt)),
   )
   return (
-    <div>
+    <>
       <PageHeader title="Project" content="" />
       <section className="w-full">
         <ul className="w-full grid grid-cols-2 gap-5">
           {projectPost.map((post, i) => (
-            <ProjectList post={post} />
+            <ProjectList post={post} key={i} />
           ))}
         </ul>
       </section>
-    </div>
+    </>
   )
 }
 

@@ -37,7 +37,7 @@ const Post = async ({ params, subNum }: Params) => {
           className="rounded-lg my-5"
         />
       )}
-      <article className="prose prose-stone prose-sm max-w-none">
+      <article className="prose prose-stone prose-sm max-w-none dark:prose-invert">
         <Mdx postCode={post.body.code} />
       </article>
     </>

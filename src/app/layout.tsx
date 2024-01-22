@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import RecoilRootProvider from '@/states/recoilRootProvider'
+import { Navbar } from '../components'
+import { ThemeProvider } from './ThemeProviders'
 
 export const metadata: Metadata = {
   title: 'indevruis blog',
@@ -10,7 +12,12 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="ko">
       <body>
-        <RecoilRootProvider>{children}</RecoilRootProvider>
+        <RecoilRootProvider>
+          <ThemeProvider>
+            <Navbar />
+            {children}
+          </ThemeProvider>
+        </RecoilRootProvider>
       </body>
     </html>
   )

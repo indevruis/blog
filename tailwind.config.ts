@@ -17,9 +17,10 @@ const config: Config = {
       fontSize: {
         '15px': '15px',
         '30px': '30px',
-      }
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],
+  darkMode: 'class',
 }
 export default config

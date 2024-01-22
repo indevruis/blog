@@ -3,12 +3,12 @@ import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
-import rehypePrettyCode from "rehype-pretty-code";
+import rehypePrettyCode from 'rehype-pretty-code'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
   filePathPattern: `**/*.mdx`,
-  contentType: "mdx",
+  contentType: 'mdx',
   fields: {
     title: {
       type: 'string',
@@ -41,10 +41,10 @@ export const Post = defineDocumentType(() => ({
 
 const options = {
   theme: {
-    dark:"poimandres",
-    light: "vitesse-light",
+    dark: 'poimandres',
+    light: 'vitesse-light',
   },
-  defaultLang: "js",
+  defaultLang: 'js',
 }
 
 const contentSource = makeSource({
@@ -63,10 +63,9 @@ const contentSource = makeSource({
         },
       ],
       // @ts-expect-error
-      [rehypePrettyCode, options]
+      [rehypePrettyCode, options],
     ],
   },
 })
 
 export default contentSource
-

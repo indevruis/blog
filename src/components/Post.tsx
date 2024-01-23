@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { format, parseISO } from 'date-fns'
 import Mdx from '@/containers/note/Mdx'
 import Image from 'next/image'
+import type { Metadata } from 'next'
 
 interface Params {
   params: {
@@ -52,4 +53,19 @@ const getPost = async ({ params, subNum }: Params) => {
   })
 
   return post ?? null
+}
+
+export const generateMetadata = async ({
+  params,
+}: Params): Promise<Metadata> => {
+  const post = await getPost({ params, subNum: 12 })
+
+  if (!post) {
+    return {}
+  }
+
+  return {
+    title: post.title,
+    description: post.description,
+  }
 }

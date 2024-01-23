@@ -5,7 +5,7 @@ import { SlSocialLinkedin } from 'react-icons/sl'
 
 const Footer = () => {
   return (
-    <footer className="mt-16 mb-5">
+    <footer className="mt-20">
       <div className="flex justify-center">
         <Link href="mailto:indevruis@gmail.com" className="px-1.5">
           <TfiEmail color="#64748b" />
@@ -20,7 +20,7 @@ const Footer = () => {
           <SlSocialLinkedin color="#64748b" />
         </Link>
       </div>
-      <div className="flex justify-center mt-0.5 text-[13px] text-slate-500">
+      <div className="flex justify-center mt-0.5 text-[13px] text-slate-500 mb-5">
         <div>© 2024</div>
         <div>&nbsp; • &nbsp;</div>
         <div>SeoYun Choi</div>

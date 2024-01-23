@@ -45,3 +45,16 @@ code[data-theme*=' '] span {
     background-color: var(--shiki-dark-bg);
   }
 }
+
+.prose h3 {
+  margin-top: 20px;
+}
+
+.prose p {
+  margin: 7px 0;
+  font-size: 15px;
+}
+
+.prose img {
+  margin: 20px 0;
+}

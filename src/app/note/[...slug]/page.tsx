@@ -1,4 +1,5 @@
 import { Post } from '@/components'
+import Toc from '@/components/Toc'
 
 interface Params {
   params: {
@@ -7,6 +8,11 @@ interface Params {
 }
 
 const NotePost = ({ params }: Params) => {
-  return Post({ params, subNum: 12 })
+  return (
+    <div>
+      <Toc />
+      <Post params={params} subNum={12} />
+    </div>
+  )
 }
 export default NotePost

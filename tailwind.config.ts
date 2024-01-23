@@ -18,6 +18,9 @@ const config: Config = {
         '15px': '15px',
         '30px': '30px',
       },
+      colors: {
+        'light-gray': '#adb5bd',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],

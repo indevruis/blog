@@ -9,7 +9,7 @@ const Toc = () => {
 
   useEffect(() => {
     const observer = getIntersectionObserver(setcurrentHeader)
-    const headingElements = Array.from(document.querySelectorAll('h2, h3'))
+    const headingElements = Array.from(document.querySelectorAll('h1, h2, h3'))
 
     setheaders(headingElements)
 
@@ -19,14 +19,16 @@ const Toc = () => {
   }, [])
 
   return (
-    <div className="fixed right-[10vw] text-light-gray text-[15px] border-l pl-7 w-[200px]">
+    <div className="fixed right-[10vw] text-light-gray text-[15px] border-l pl-7 w-[200px] Toc">
       <ul>
         {headers.map((header) => {
           return (
             <li key={header.id}>
               <a
                 href={`#${header.id}`}
-                className={currentHeader === header.id ? 'active' : ''}
+                className={
+                  currentHeader === header.id ? 'active dark:text-white' : ''
+                }
               >
                 {header.textContent}
               </a>
